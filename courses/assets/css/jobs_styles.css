@@ -16,9 +16,9 @@
 }
 
 .company-logo {
-    width: 100px;
-    height: auto;
-    margin-bottom: 10px;
+    width: 80px; /* Uniform width */
+    height: 80px; /* Uniform height */
+    object-fit: contain; /* Ensures the aspect ratio is maintained */
 }
 
 h1, h2 {
