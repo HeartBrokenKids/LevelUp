@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Introduction to HTML",
+        "description": "Learn the basics of HTML, the fundamental building block of the web.",
+        "keywords": ["html", "web development"],
+        "price": 5000,
+        "roi": 1.5
+    },
+    {
+        "name": "CSS Fundamentals",
+        "description": "Understand how to style websites with CSS.",
+        "keywords": ["css", "web design"],
+        "price": 6000,
+        "roi": 1.4
+    },
+    {
+        "name": "JavaScript Essentials",
+        "description": "Get started with JavaScript, the programming language of the web.",
+        "keywords": ["javascript", "programming"],
+        "price": 7000,
+        "roi": 1.8
+    },
+    {
+        "name": "Responsive Web Design",
+        "description": "Learn how to make websites look great on all devices with responsive design techniques.",
+        "keywords": ["responsive", "design"],
+        "price": 5500,
+        "roi": 1.6
+    },
+    {
+        "name": "Bootstrap Basics",
+        "description": "A beginner's guide to using the Bootstrap framework for responsive web design.",
+        "keywords": ["bootstrap", "css"],
+        "price": 4000,
+        "roi": 1.3
+    },
+    {
+        "name": "Advanced JavaScript",
+        "description": "Deep dive into advanced JavaScript concepts and techniques.",
+        "keywords": ["javascript", "advanced"],
+        "price": 8000,
+        "roi": 2.0
+    },
+    {
+        "name": "Node.js for Beginners",
+        "description": "Introduction to server-side programming with Node.js.",
+        "keywords": ["node.js", "server-side"],
+        "price": 7500,
+        "roi": 1.9
+    },
+    {
+        "name": "React.js Introduction",
+        "description": "Learn the basics of React.js, a popular JavaScript library for building user interfaces.",
+        "keywords": ["react.js", "javascript"],
+        "price": 6500,
+        "roi": 1.7
+    },
+    {
+        "name": "Full-Stack Web Development",
+        "description": "A comprehensive course covering both front-end and back-end web development.",
+        "keywords": ["full-stack", "web development"],
+        "price": 10000,
+        "roi": 2.5
+    },
+    {
+        "name": "APIs with Express.js",
+        "description": "Learn how to build RESTful APIs with Express.js and Node.js.",
+        "keywords": ["apis", "express.js"],
+        "price": 7000,
+        "roi": 1.8
+    }
+]
