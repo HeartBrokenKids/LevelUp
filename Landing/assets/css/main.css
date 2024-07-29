@@ -986,7 +986,54 @@ section,
   color: #6c757d;
 }
 
+.custom-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px; /* Increase space between the cards */
+  margin-top: 40px; /* Add space from the section above */
+  padding: 0 20px; /* Add padding to align with the above section */
+}
 
+.custom-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-logo {
+  margin-bottom: 10px;
+}
+
+.image-container {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Adjust the size as needed */
+}
+
+.stats-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.stats-content {
+  text-align: center;
+}
+
+.stats-counter {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stats-content p {
+  margin: 0;
+  font-size: 16px;
+}
 
 /*--------------------------------------------------------------
 # Featured Services Section

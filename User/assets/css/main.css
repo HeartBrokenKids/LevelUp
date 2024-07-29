@@ -288,7 +288,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: rgba(14, 29, 52, 0.9);
+  --background-color: white;
 }
 
 /*--------------------------------------------------------------
@@ -314,7 +314,7 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-color);
+    color: grey;
     padding: 18px 15px;
     font-size: 16px;
     font-family: var(--nav-font);
@@ -341,7 +341,7 @@ h6 {
   .navmenu li:hover>a,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-hover-color);
+    color: black;
   }
 
   .navmenu .dropdown ul {
@@ -368,7 +368,7 @@ h6 {
     padding: 10px 20px;
     font-size: 15px;
     text-transform: none;
-    color: var(--nav-dropdown-color);
+    color: grey;
   }
 
   .navmenu .dropdown ul a i {
@@ -378,7 +378,7 @@ h6 {
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
   .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
+    color: black;
   }
 
   .navmenu .dropdown:hover>ul {
@@ -869,9 +869,10 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 50vh;
+  min-height: 80vh;
   position: relative;
   padding: 120px 0 60px 0;
+  background-color: #f1f2f4;
 }
 
 .hero .hero-bg {
@@ -942,40 +943,50 @@ section,
   background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
+.hero .stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
 .hero .stats-item {
-  padding: 30px;
-  width: 100%;
+  flex: 1;
+  min-width: 150px;
+  max-width: 220px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: black;
+  margin: 10px;
+  text-align: center;
 }
 
 .hero .stats-item span {
-  font-size: 32px;
+  font-size: 28px;
   display: block;
   font-weight: 700;
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-  position: relative;
+  margin-bottom: 10px;
 }
 
 .hero .stats-item span:after {
   content: "";
-  position: absolute;
   display: block;
   width: 20px;
   height: 3px;
   background: var(--accent-color);
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  margin: 5px auto;
 }
 
 .hero .stats-item p {
-  padding: 0;
-  margin: 0;
-  font-family: var(--heading-font);
   font-size: 15px;
   font-weight: 600;
+  color: #6c757d;
 }
+
+
 
 /*--------------------------------------------------------------
 # Featured Services Section
@@ -1576,41 +1587,69 @@ section,
 /*--------------------------------------------------------------
 # Stats Section
 --------------------------------------------------------------*/
-.stats .stats-item {
-  padding: 30px;
-  width: 100%;
+
+.custom-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers items horizontally */
+  gap: 20px; /* Adds space between items */
 }
 
-.stats .stats-item span {
-  color: var(--heading-color);
-  font-size: 48px;
-  display: block;
-  font-weight: 700;
+.custom-col {
+  padding: 15px;
+  flex: 1 1 22%; /* Adjust the basis to ensure that items can grow but also wrap correctly */
+  max-width: 250px; /* Sets a maximum width */
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the content vertically and horizontally */
+  justify-content: center;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
+  width: 100%; /* Ensures the item fills its container */
+  height: auto;
 }
 
-.stats .stats-item span:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 25px;
-  height: 3px;
-  background: var(--accent-color);
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+.stats-logo {
+  width: 80px; /* Standardize logo size */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E7F0FA;
+  border-radius: 50%; /* Makes it circular */
+  margin-bottom: 10px; /* Space between logo and text */
 }
 
-.stats .stats-item p {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  padding: 0;
-  margin: 0;
-  font-family: var(--heading-font);
-  font-weight: 500;
+.stats-image {
+  width: 50px; /* Adjust if necessary to fit within logo container */
+  height: auto;
 }
+
+.stats-content {
+  text-align: center; /* Ensures text is centered */
+  width: 100%; /* Full width of the container */
+}
+
+.stats-counter {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+}
+
+.stats-text {
+  font-size: 18px;
+  color: #333333;
+}
+
+
+
+
 
 /*--------------------------------------------------------------
 # Team Section
