@@ -32,48 +32,38 @@ app.use('/employer', express.static(path.join(__dirname, '../../../Employer')));
 const upload = multer({ storage: multer.memoryStorage() });
 
 // Endpoint to handle student registration with file upload
-app.post('/register-student', upload.single('cv'), async (req, res) => {
-  const { email, password, fullName, college } = req.body;
-  const cvFile = req.file;
+app.post('/register-student', async (req, res) => {
+  // Extracting data from request body
+  const { email, password, fullName, college, number } = req.body;
+
+  // Simple server-side validation
+  if (!email || !password || !fullName || !college || !number) {
+      return res.status(400).send("All fields are required.");
+  }
+
+  const mobileNumberPattern = /^[0-9]{10}$/;
+  if (!mobileNumberPattern.test(number)) {
+      return res.status(400).send("Invalid mobile number format.");
+  }
 
   try {
-    const userRecord = await admin.auth().createUser({ email, password });
-    const userId = userRecord.uid;
+      const userRecord = await admin.auth().createUser({ email, password });
+      const userId = userRecord.uid;
 
-    const filename = `cvs/${userId}/${uuidv4()}_${cvFile.originalname}`;
-    const file = bucket.file(filename);
-
-    const stream = file.createWriteStream({
-      metadata: {
-        contentType: cvFile.mimetype
-      }
-    });
-
-    stream.on('error', (error) => {
-      throw new Error('File upload failed: ' + error.message);
-    });
-
-    stream.on('finish', async () => {
-      await file.makePublic();
-      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${filename}`;
-
-      // Save user details and CV URL to Firestore
+      // Save user details to Firestore
       await db.collection('users').doc(userId).set({
-        fullName,
-        email,
-        college,
-        cvUrl: publicUrl,
-        role: 'student'  // Assign the role as 'student'
+          fullName: fullName || '',  // Ensure no undefined values
+          email: email || '',
+          college: college || '',
+          number: number || '',
+          role: 'student'  // Assign the role as 'student'
       });
-
       res.status(200).send('Student registered successfully!');
-    });
-
-    stream.end(cvFile.buffer);
   } catch (error) {
-    res.status(500).send(`Error registering student: ${error.message}`);
+      res.status(500).send(`Error registering student: ${error.message}`);
   }
 });
+
 
 // Endpoint to handle company registration
 app.post('/register-company', async (req, res) => {
