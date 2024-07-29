@@ -84,10 +84,7 @@
                                   <input type="text" class="form-control" name="college" placeholder="College" required="">
                               </div>
                               <div class="col-12">
-                                <div class="custom-file-input">
-                                    <input type="file" name="cv" class="form-control-file" required="" id="fileInput" onchange="updatePlaceholder()" style="display: none;">
-                                    <label for="fileInput" id="fileInputLabel" class="form-control">Upload CV</label>
-                                </div>
+                                <input type="tel" class="form-control" name="number" id="number" placeholder="Enter Mobile Number" required pattern="[0-9]{10}" title="Please enter a 10-digit mobile number">
                             </div>
                             <div class="col-12 text-center">
                                 <div class="loading">Loading</div>
@@ -183,37 +180,46 @@
 
   <!-- Main JS File -->
     <script>
-document.getElementById("registerStudent").addEventListener("click", function(event) {
+document.getElementById("registerStudent").addEventListener("click", async function(event) {
     event.preventDefault();
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const fullName = document.querySelector("input[name='fullname']").value;
     const college = document.querySelector("input[name='college']").value;
-    const cvFile = document.getElementById("fileInput").files[0];
+    const number = document.getElementById('number').value;
 
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("fullName", fullName);
-    formData.append("college", college);
-    formData.append("cv", cvFile);
+    const formData = {
+      email: email,
+      password: password,
+      fullName: fullName,
+      college, college,
+      number, number
+    };
 
-    fetch('http://localhost:3000/register-student', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert(data);
-
-        window.location.href = 'http://localhost:3000/landing/loginSignUp.html';
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred during registration.');
-    });
+    try {
+            const response = await fetch('http://localhost:3000/register-student', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
 });
+
+    
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+            const result = await response.text();
+            alert(result);
+
+            window.location.href = 'http://localhost:3000/landing/loginSignUp.html';
+        } catch (error) {
+            console.log('Error:', error);
+            alert('An error occurred during registration.');
+        }
+    });
 </script>
 
 
