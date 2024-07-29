@@ -77,36 +77,45 @@
         <div class="row gy-4 d-flex justify-content-between">
           <section id="get-a-quote" class="get-a-quote section">
             <div id="form-container" class="form-container">
-              <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-7 quote-bg">
-                  <div class="col-lg-9 quote-bg loginbg" style="background-image: url(assets/img/custom/loginbg.jpg);">
-                    <!--<h2 data-aos="fade-up" style="color: black;">Welcome</h2>
-                    <p data-aos="fade-up" data-aos-delay="100" style="color: black;">Begin your journey with us, whether you're a student seeking opportunities or an employer looking for talent.</p>-->
+                <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+                  <div class="col-lg-7 quote-bg">
+                      <div class="col-lg-9 quote-bg loginbg" style="background-image: url(assets/img/custom/loginbg.jpg);"></div>
                   </div>
-                </div>
-            
-                <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
-                  <form action="#" method="post" class="php-email-form">
-                    <h1 style="text-align: center; padding-bottom: 40px;">Login</h1>
-                    <div class="row gy-4">
-                      <div class="col-12">
-                        <input type="email" class="form-control" name="email" id="login_email" placeholder="Email" required="" >
-                      </div>
-                      <div class="col-12">
-                        <input type="password" class="form-control" name="password" id="login_password" placeholder="Password" required="">
-                      </div>
-                      <div class="col-12 text-center">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your login request has been sent successfully. Thank you!</div>
-                        <button type="submit" id="login">Login</button>
-                      </div>
-                      <div class="col-12">
-                        <h3>New to LevelUp? Register (<a href="registerStudent.html" class="register-link">Student</a> / <a href="registerCompany.html" class="register-link">Company</a>)</h3>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+                  <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
+                      <form id="student-form" class="php-email-form" action="#" enctype="multipart/form-data">
+                          <h1 style="text-align: center; padding-bottom: 40px;">Student Registration</h1>
+                          <div class="row gy-4">
+                              <div class="col-12">
+                                  <input type="text" class="form-control" name="fullname" placeholder="Full name" required="">
+                              </div>
+                              <div class="col-12">
+                                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="">
+                              </div>
+                              <div class="col-12">
+                                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" required="">
+                              </div>
+                              <div class="col-12">
+                                  
+                                  <input type="text" class="form-control" name="college" placeholder="College" required="">
+                              </div>
+                              <div class="col-12">
+                                <div class="custom-file-input">
+                                    <input type="file" name="cv" class="form-control-file" required="" id="fileInput" onchange="updatePlaceholder()" style="display: none;">
+                                    <label for="fileInput" id="fileInputLabel" class="form-control">Upload CV</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your registration request has been sent successfully. Thank you!</div>
+                                <button type="submit" id="registerStudent">Register</button>
+                            </div>
+                            <div class="col-12 text-center">
+                                <h3>Already have an account? (<a href="get-a-quote.html" class="register-link">Login</a>)</h3>
+                            </div>
+                          </div>
+                      </form>
+                  </div>
               </div>
             </div>
             
@@ -188,46 +197,42 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-<script type="module">
-document.getElementById("login").addEventListener("click", async function(event) {
-  event.preventDefault();
+    <script>
+document.getElementById("registerStudent").addEventListener("click", function(event) {
+    event.preventDefault();
 
-  const email = document.getElementById("login_email").value;
-  const password = document.getElementById("login_password").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const fullName = document.querySelector("input[name='fullname']").value;
+    const college = document.querySelector("input[name='college']").value;
+    const cvFile = document.getElementById("fileInput").files[0];
 
-  try {
-    const response = await fetch('http://localhost:3000/login', {  // Use port 3000 for requests
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("fullName", fullName);
+    formData.append("college", college);
+    formData.append("cv", cvFile);
+
+    fetch('http://localhost:3000/register-student', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+
+        window.location.href = 'http://localhost:3000/landing/get-a-quote.html';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during registration.');
     });
-
-    if (response.ok) {
-      const result = await response.json();
-      alert(`Login successful! Role: ${result.role}`);
-
-      if (result.role === 'student') {
-        window.location.href = 'http://localhost:3000/User/index.html';
-      } else if (result.role === 'company') {
-        window.location.href = 'http://localhost:3000/Employer/index.html';
-      }
-    } else {
-      const errorData = await response.json();
-      alert(`Login failed: ${errorData.message}`);
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    alert('An error occurred during login.');
-  }
 });
+</script>
 
 
   </script>
-  
-  
-  
   <script src="assets/js/main.js"></script>
   <script src="assets/js/registerForms.js"></script>
 

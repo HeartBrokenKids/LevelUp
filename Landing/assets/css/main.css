@@ -1970,6 +1970,8 @@ section,
 
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
+.contact .php-email-form input[type=password],
+.contact .php-email-form input[type=file],
 .contact .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
@@ -1982,12 +1984,16 @@ section,
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type=password]:focus,
+.contact .php-email-form input[type=file]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type=password]::placeholder,
+.contact .php-email-form input[type=file]::placeholder,
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
@@ -2012,6 +2018,7 @@ section,
   min-height: 500px;
   background-size: cover;
   background-position: center;
+  max-height: 600px;
 }
 
 .get-a-quote .php-email-form {
@@ -2028,9 +2035,9 @@ section,
 
 .get-a-quote .php-email-form h3 {
   font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 400;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .get-a-quote .php-email-form h4 {
@@ -2048,11 +2055,18 @@ section,
 
 .get-a-quote .php-email-form input[type=text],
 .get-a-quote .php-email-form input[type=email],
-.get-a-quote .php-email-form textarea {
+.get-a-quote .php-email-form input[type=password],
+.get-a-quote .php-email-form input[type=file],
+.get-a-quote .php-email-form input[type=tel],
+.get-a-quote .php-email-form textarea,
+.get-a-quote .php-email-form select,
+.get-a-quote .php-email-form .custom-file-input label {
+  width: 80%;
+  margin: auto;
   font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
-  border-radius: 0;
+  border-radius: 10px;
   color: var(--default-color);
   background-color: color-mix(in srgb, var(--background-color), transparent 20%);
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
@@ -2060,17 +2074,57 @@ section,
 
 .get-a-quote .php-email-form input[type=text]:focus,
 .get-a-quote .php-email-form input[type=email]:focus,
-.get-a-quote .php-email-form textarea:focus {
+.get-a-quote .php-email-form input[type=password]:focus,
+.get-a-quote .php-email-form input[type=file]:focus,
+.get-a-quote .php-email-form input[type=tel]:focus,
+.get-a-quote .php-email-form textarea:focus,
+.get-a-quote .php-email-form select:focus,
+.get-a-quote .php-email-form .custom-file-input label:hover {
   border-color: var(--accent-color);
 }
 
 .get-a-quote .php-email-form input[type=text]::placeholder,
 .get-a-quote .php-email-form input[type=email]::placeholder,
-.get-a-quote .php-email-form textarea::placeholder {
+.get-a-quote .php-email-form input[type=password]::placeholder,
+.get-a-quote .php-email-form input[type=file]::placeholder,
+.get-a-quote .php-email-form input[type=tel]::placeholder,
+.get-a-quote .php-email-form textarea::placeholder,
+.get-a-quote .php-email-form select option {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
+.get-a-quote .php-email-form .custom-file-input {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.get-a-quote .php-email-form .custom-file-input input[type=file] {
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.get-a-quote .php-email-form .custom-file-input label {
+  width: 90%;
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: color-mix(in srgb, var(--background-color), transparent 20%);
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  cursor: pointer;
+}
+
+
+
+
 .get-a-quote .php-email-form button[type=submit] {
+  width: 40%;
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 0;
@@ -2088,4 +2142,16 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+.loginbg{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80vh;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: baseline;
 }

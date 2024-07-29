@@ -79,30 +79,32 @@
             <div id="form-container" class="form-container">
               <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-lg-7 quote-bg">
-                  <div class="col-lg-9 quote-bg loginbg" style="background-image: url(assets/img/custom/loginbg.jpg);">
-                    <!--<h2 data-aos="fade-up" style="color: black;">Welcome</h2>
-                    <p data-aos="fade-up" data-aos-delay="100" style="color: black;">Begin your journey with us, whether you're a student seeking opportunities or an employer looking for talent.</p>-->
-                  </div>
+                  <div class="col-lg-9 quote-bg loginbg" style="background-image: url(assets/img/custom/loginbg.jpg);"></div>
                 </div>
-            
                 <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
-                  <form action="#" method="post" class="php-email-form">
-                    <h1 style="text-align: center; padding-bottom: 40px;">Login</h1>
+                  <form id="company-form" class="php-email-form" action="#">
+                    <h1 style="text-align: center; padding-bottom: 40px;">Company Registration</h1>
                     <div class="row gy-4">
                       <div class="col-12">
-                        <input type="email" class="form-control" name="email" id="login_email" placeholder="Email" required="" >
+                        <input type="text" class="form-control" name="companyname" id="companyname" placeholder="Company Name" required="">
                       </div>
                       <div class="col-12">
-                        <input type="password" class="form-control" name="password" id="login_password" placeholder="Password" required="">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Official Email Id" required="">
+                      </div>
+                      <div class="col-12">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required="">
+                      </div>
+                      <div class="col-12">
+                        <input type="tel" class="form-control" name="number" id="number" placeholder="Enter Mobile Number" required pattern="[0-9]{10}" title="Please enter a 10-digit mobile number">
                       </div>
                       <div class="col-12 text-center">
                         <div class="loading">Loading</div>
                         <div class="error-message"></div>
-                        <div class="sent-message">Your login request has been sent successfully. Thank you!</div>
-                        <button type="submit" id="login">Login</button>
+                        <div class="sent-message">Your registration request has been sent successfully. Thank you!</div>
+                        <button type="submit" id="registerCompany">Register</button>
                       </div>
                       <div class="col-12">
-                        <h3>New to LevelUp? Register (<a href="registerStudent.html" class="register-link">Student</a> / <a href="registerCompany.html" class="register-link">Company</a>)</h3>
+                        <h3>Already have an account? (<a href="get-a-quote.html" class="register-link">Login</a>)</h3>
                       </div>
                     </div>
                   </form>
@@ -188,46 +190,47 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-<script type="module">
-document.getElementById("login").addEventListener("click", async function(event) {
-  event.preventDefault();
-
-  const email = document.getElementById("login_email").value;
-  const password = document.getElementById("login_password").value;
-
-  try {
-    const response = await fetch('http://localhost:3000/login', {  // Use port 3000 for requests
-      method: 'POST',
-      headers: {
+  <script>
+    document.getElementById("registerCompany").addEventListener("click", async function(event) {
+        event.preventDefault();
+    
+        const companyName = document.getElementById("companyname").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const mobileNumber = document.getElementById("number").value;
+    
+        const formData = {
+            companyName: companyName,
+            email: email,
+            password: password,
+            mobileNumber: mobileNumber
+        };
+    
+        try {
+            const response = await fetch('http://localhost:3000/register-company', {
+    method: 'POST',
+    headers: {
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    });
-
-    if (response.ok) {
-      const result = await response.json();
-      alert(`Login successful! Role: ${result.role}`);
-
-      if (result.role === 'student') {
-        window.location.href = 'http://localhost:3000/User/index.html';
-      } else if (result.role === 'company') {
-        window.location.href = 'http://localhost:3000/Employer/index.html';
-      }
-    } else {
-      const errorData = await response.json();
-      alert(`Login failed: ${errorData.message}`);
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    alert('An error occurred during login.');
-  }
+    },
+    body: JSON.stringify(formData)
 });
 
+    
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+            const result = await response.text();
+            alert(result);
 
-  </script>
-  
-  
-  
+            window.location.href = 'http://localhost:3000/landing/get-a-quote.html';
+        } catch (error) {
+            console.log('Error:', error);
+            alert('An error occurred during registration.');
+        }
+    });
+    </script>
+    
   <script src="assets/js/main.js"></script>
   <script src="assets/js/registerForms.js"></script>
 
