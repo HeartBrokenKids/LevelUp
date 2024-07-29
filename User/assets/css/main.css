@@ -742,7 +742,7 @@ h6 {
 --------------------------------------------------------------*/
 .page-title {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: #f1f2f4;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -753,7 +753,7 @@ h6 {
 
 .page-title:before {
   content: "";
-  background-color: color-mix(in srgb, var(--background-color), transparent 30%);
+  background-color: color-mix(in srgb, var(--background-color), transparent 100%);
   position: absolute;
   inset: 0;
 }
@@ -905,13 +905,20 @@ section,
 
 .hero p {
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 400;  
   margin-bottom: 40px;
+  color: black;
 }
 
 .hero form {
   background: color-mix(in srgb, var(--default-color) 5%, white 90%);
-  padding: 10px;
+  padding: 0px;
+  border-radius: 10px;
+}
+
+.hero form1 {
+  /* background: color-mix(in srgb, var(--default-color) 5%, white 90%); */
+  padding-bottom: 20px;
   border-radius: 10px;
 }
 
@@ -936,7 +943,8 @@ section,
   color: var(--contrast-color);
   background-color: var(--accent-color);
   flex-shrink: 0;
-  padding: 0 25px;
+  padding: 10px 25px;
+  
 }
 
 .hero form .btn-primary:hover {
@@ -984,6 +992,25 @@ section,
   font-size: 15px;
   font-weight: 600;
   color: #6c757d;
+}
+
+#file-upload {
+  display: none; /* Hide the actual file input */
+}
+
+#file-upload + .btn-primary {
+  cursor: pointer;
+  padding: 20px 50px;
+  font-size: 16px;
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  
+}
+
+#file-upload + .btn-primary:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
 
@@ -1961,10 +1988,102 @@ section,
 /*--------------------------------------------------------------
 # Get A Quote Section
 --------------------------------------------------------------*/
-.get-a-quote .quote-bg {
-  min-height: 500px;
-  background-size: cover;
-  background-position: center;
+.get-a-quote {
+  width: 100%;
+  min-height: 80vh;
+  position: relative;
+  padding: 20px 0 60px 0;
+  background-color: #f1f2f4;
+}
+
+.get-a-quote .get-a-quote-bg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.get-a-quote .container {
+  position: relative;
+  z-index: 3;
+}
+
+.get-a-quote h2 {
+  margin-bottom: 20px;
+  padding: 0;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+@media (max-width: 575px) {
+  .hero h2 {
+    font-size: 30px;
+  }
+}
+
+.get-a-quote p {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.get-a-quote form {
+  /* background: color-mix(in srgb, var(--default-color) 5%, white 90%); */
+  padding: 0px;
+  border-radius: 10px;
+}
+
+.get-a-quote form .form-control {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  margin-right: 10px;
+  border: none !important;
+  background: none !important;
+}
+
+.get-a-quote form .form-control:hover,
+.get-a-quote form .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.get-a-quote form .btn-primary {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  flex-shrink: 0;
+  padding: 10px 25px;
+  
+}
+
+.get-a-quote form .btn-primary:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+
+
+#file-upload {
+  display: none; /* Hide the actual file input */
+}
+
+#file-upload + .btn-primary {
+  cursor: pointer;
+  padding: 20px 50px;
+  font-size: 16px;
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  
+}
+
+#file-upload + .btn-primary:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
 .get-a-quote .php-email-form {
