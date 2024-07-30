@@ -1,21 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Recommendations</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/courses_styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Recommendations</title>
+  <meta name="description" content="Explore recommended courses with ROI comparison">
+  <meta name="keywords" content="courses, recommendations, ROI">
+
+  <!-- Favicons -->
+  <link href="assets/img/custom/briefcase.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    /* Main styles for the page */
+    .course-card {
+      margin-bottom: 20px;
+    }
+
+    .most-recommended {
+      border: 2px solid #007bff;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+      background-color: #e9f7fe;
+    }
+
+    .card-title {
+      font-weight: bold;
+    }
+
+    .card-text {
+      margin-bottom: 5px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #007bff;
+    }
+
+    .container {
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
-<body>
+
+<body class="course-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/custom/briefcase.png" alt="logo">
+        <h1 class="sitename" style="color: black;">LevelUp</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="opportunities.html">Opportunities</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="user_dashboard.html">Dashboard</a>
+    </div>
+  </header>
+
+  <main class="main">
     <div class="container mt-5">
-        <h1 class="mb-4">Course Recommendations</h1>
-        <div id="course-list" class="row"></div>
-        <h2 class="mt-5">ROI Comparison</h2>
-        <canvas id="roiChart" width="400" height="200"></canvas>
+      <h1 class="mb-4">Course Recommendations</h1>
+      <div id="course-list" class="row"></div>
+      <h2 class="mt-5">ROI Comparison</h2>
+      <canvas id="roiChart" width="400" height="200"></canvas>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">LevelUp</span>
+          </a>
+          <p>Your satisfaction is our priority. Reach out if you need help.</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="opportunities.html">Opportunities</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="courses.html">Course Recommendations</a></li>
+            <li><a href="opportunities.html">Skill Gap Analysis</a></li>
+            <li><a href="user_dashboard.html">Job Recommendations</a></li>
+            <li><a href="courses.html">ROI Analysis</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>NMIMS<br>Navi Mumbai<br>Maharashtra</p>
+          <p class="mt-4"><strong>Phone:</strong> +91 xxxxx xxxxx</p>
+          <p><strong>Email:</strong> info@example.com</p>
+        </div>
+      </div>
     </div>
 
-    <script src="assets/js/courses_scripts.js"></script>
+    <div class="container copyright text-center mt-4">
+      <p>© <strong class="px-1 sitename">LevelUp</strong> All Rights Reserved</p>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/courses_scripts.js"></script>
+
 </body>
 </html>

@@ -10,7 +10,7 @@ async function displayCourses() {
     const input = await fetchJSON('input_courses.json');
     const keywords = input.keywords;
     const courseList = document.getElementById('course-list');
-    
+
     // Filter courses based on keywords
     const filteredCourses = courses.filter(course => {
         return course.keywords.some(keyword => keywords.includes(keyword));

@@ -9,7 +9,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/custom/briefcase.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -44,58 +44,75 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Logis</h1>
+        <img src="assets/img/custom/briefcase.png" alt="logo">
+        <h1 class="sitename" style="color: black;">LevelUp</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home<br></a></li>
+          <li><a href="index.html" class="active">Home<br></a></li>
+          <li><a href="opportunities.html">Opportunities</a></li>
+          <li><a href="courses.html">Courses</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="get-a-quote.html">Get a Quote</a>
+      <a class="btn-getstarted" href="user_dashboard.html">Dashboard</a>
 
     </div>
   </header>
 
-  <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
-      <div class="container position-relative">
-        <h1>Get a Quote</h1>
-        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Get A Quote</li>
-          </ol>
-        </nav>
+    <!-- <div class="page-title">
+      <div class="container">
+        <div class="row align-items-center"> -->
+          <!-- Left column with the image -->
+          <!-- <div class="col-md-6">
+            <img src="assets/img/custom/dashboard_bg.gif" class="img-fluid" alt="Dashboard Background">
+          </div> -->
+          <!-- Right column with the title and upload button -->
+          <!-- <div class="col-md-6">
+            <h1>Dashboard</h1>
+            <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+            <nav class="breadcrumbs">  
+              <form action="#" class="form-search d-flex justify-content-center align-items-center mb-3" data-aos="fade-up" data-aos-delay="200">
+                <label for="file-upload" class="btn btn-primary">Upload Resume</label>
+                <input type="file" id="file-upload" class="form-control" style="display: none;">
+                
+              </form>
+            </nav>
+          </div>
+        </div>
       </div>
-    </div><!-- End Page Title -->
+    </div> -->
+    <section id="hero" class="hero section dark-background">
+      <img src="assets/img/world-dotted-map.png" alt="" class="hero-bg" data-aos="fade-in" style="background-color: #f1f2f4;">
+      
+      <div class="container">
+        <div class="row gy-4 d-flex justify-content-between">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h2 data-aos="fade-up" style="color: rgb(16, 16, 112);">Dashboard</h2>
+            <p>fetch info from firebase</p>
+            
+            <form1 action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+              <label for="file-upload" class="btn btn-primary">Upload Resume</label>
+              <input type="file" id="file-upload" class="form-control" style="display: none;">
+            </form1>
+          </div>
+    
+          <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+            <img src="assets/img/custom/dashboard_bg.gif" class="img-fluid mb-3 mb-lg-0" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <!--End Page Title -->
 
     <!-- Get A Quote Section -->
     <section id="get-a-quote" class="get-a-quote section">
@@ -175,9 +192,9 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Logis</span>
+            <span class="sitename">LevelUp</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p>Your satisfaction is our priority. Reach out if you need help.</p>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -189,9 +206,9 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="#index.html">Home</a></li>
+            <li><a href="#about.html">About us</a></li>
+            <li><a href="#opportunities.html">Opportunities</a></li>            
             <li><a href="#">Terms of service</a></li>
             <li><a href="#">Privacy policy</a></li>
           </ul>
@@ -200,20 +217,19 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#courses.html">Course Recommendations</a></li>
+            <li><a href="#opportunies.html">Skill Gap Analysis</a></li>
+            <li><a href="#user_dashboard.html">Job Recommendations</a></li>
+            <li><a href="#courses.html">ROI Analysis</a></li>            
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+          <p>NMIMS</p>
+          <p>Navi Mumbai</p>
+          <p>Maharashtra</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+91 xxxxx xxxxx</span></p>
           <p><strong>Email:</strong> <span>info@example.com</span></p>
         </div>
 
@@ -221,7 +237,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Logis</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">LevelUp</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->

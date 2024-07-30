@@ -18,6 +18,11 @@ app.get('/jobs', (req, res) => {
     res.sendFile(path.join(__dirname, 'jobs.html'));
 });
 
+app.get('/user_dashboard.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'jobs.html'));
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
