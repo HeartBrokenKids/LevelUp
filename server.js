@@ -94,29 +94,71 @@ app.post('/register-company', async (req, res) => {
 
 // Endpoint to verify user's authentication token and role
 app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-  
-    try {
-      const userRecord = await admin.auth().getUserByEmail(email);
-      const userId = userRecord.uid;
-  
+  const { email, password } = req.body;
+  console.log('Received login request:', email);
+
+  try {
+    const userRecord = await admin.auth().getUserByEmail(email);
+    console.log('User authentication successful:', userRecord.uid);
+
+    const userId = userRecord.uid;
+    const userDoc = await db.collection('users').doc(userId).get();
+
+    if (!userDoc.exists) {
+      console.log('User document not found in Firestore:', userId);
+      throw new Error('User not found');
+    }
+
+    const userData = userDoc.data();
+    console.log('User data fetched from Firestore:', userData);
+
+    const role = userData.role;
+    res.status(200).json({ message: 'Login successful', role, userId });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(401).json({ message: 'Login failed', error: error.message });
+  }
+});
+
+app.get('/get-user-data', async (req, res) => {
+  const userId = req.query.userId; // Or better, use session-based authentication to identify user
+
+  if (!userId) {
+      return res.status(400).send({ error: 'User ID is required' });
+  }
+
+  try {
       const userDoc = await db.collection('users').doc(userId).get();
       if (!userDoc.exists) {
-        throw new Error('User not found');
+          return res.status(404).send({ error: 'User not found' });
       }
-  
+
       const userData = userDoc.data();
-      const role = userData.role;
-  
-      const token = await admin.auth().createCustomToken(userId);
-  
-      res.status(200).json({ message: 'Login successful', role, token });
-    } catch (error) {
-      console.error('Login error:', error);
-      res.status(401).json({ message: 'Login failed', error: error.message });
-    }
-  });
-  
+      return res.status(200).json(userData); // Send only necessary data
+  } catch (error) {
+      console.error('Failed to fetch user data:', error);
+      res.status(500).send({ error: 'Failed to fetch user data' });
+  }
+});
+
+app.post('/update-user-data', async (req, res) => {
+  const { userId } = req.query;
+  const { fullName, college, email, number } = req.body;
+
+  try {
+      await db.collection('users').doc(userId).update({
+          fullName,
+          college,
+          email,
+          number
+      });
+      res.status(200).json({ message: 'User updated successfully' });
+  } catch (error) {
+      console.error('Error updating user:', error);
+      res.status(500).json({ error: 'Failed to update user' });
+  }
+});
+
 
 // Handle all GET requests to the root path by sending the courses.html file
 app.get('/courses', (req, res) => {
