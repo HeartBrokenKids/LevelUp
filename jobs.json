@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Frontend Developer",
+        "description": "Develop and maintain user-facing features for websites.",
+        "skills": ["javascript", "html", "css"],
+        "salary": 600000,
+        "industry_salary": 700000,
+        "company_name": "WebTech Inc.",
+        "company_logo": "assets/logos/webtech.png"
+    },
+    {
+        "title": "Backend Developer",
+        "description": "Build and maintain server-side application logic.",
+        "skills": ["node.js", "express", "mongodb"],
+        "salary": 750000,
+        "industry_salary": 800000,
+        "company_name": "CodeMasters Ltd.",
+        "company_logo": "assets/logos/codemaster.png"
+    },
+    {
+        "title": "Full Stack Developer",
+        "description": "Work on both front-end and back-end development.",
+        "skills": ["javascript", "node.js", "react"],
+        "salary": 900000,
+        "industry_salary": 950000,
+        "company_name": "DevSolutions",
+        "company_logo": "assets/logos/devsolutions.png"
+    },
+    {
+        "title": "Data Scientist",
+        "description": "Analyze and interpret complex data to help companies make decisions.",
+        "skills": ["python", "machine learning", "data analysis"],
+        "salary": 1000000,
+        "industry_salary": 1100000,
+        "company_name": "DataCrunchers",
+        "company_logo": "assets/logos/datacrunchers.png"
+    },
+    {
+        "title": "DevOps Engineer",
+        "description": "Implement and manage build infrastructure and deployment pipelines.",
+        "skills": ["aws", "docker", "jenkins"],
+        "salary": 850000,
+        "industry_salary": 900000,
+        "company_name": "OpsMasters",
+        "company_logo": "assets/logos/opsmasters.png"
+    },
+    {
+        "title": "Mobile App Developer",
+        "description": "Develop and maintain mobile applications.",
+        "skills": ["flutter", "dart", "android", "ios"],
+        "salary": 700000,
+        "industry_salary": 750000,
+        "company_name": "AppForge",
+        "company_logo": "assets/logos/appforge.png"
+    },
+    {
+        "title": "UI/UX Designer",
+        "description": "Design user interfaces and user experiences.",
+        "skills": ["figma", "sketch", "user research"],
+        "salary": 650000,
+        "industry_salary": 680000,
+        "company_name": "DesignHub",
+        "company_logo": "assets/logos/designhub.png"
+    },
+    {
+        "title": "Project Manager",
+        "description": "Plan, initiate, and manage information technology projects.",
+        "skills": ["project management", "scrum", "agile"],
+        "salary": 900000,
+        "industry_salary": 920000,
+        "company_name": "ProjectLeaders",
+        "company_logo": "assets/logos/projectleaders.png"
+    },
+    {
+        "title": "Quality Assurance Engineer",
+        "description": "Develop and execute exploratory and automated tests to ensure product quality.",
+        "skills": ["testing", "automation", "selenium"],
+        "salary": 600000,
+        "industry_salary": 620000,
+        "company_name": "QA Experts",
+        "company_logo": "assets/logos/qexperts.png"
+    },
+    {
+        "title": "Cyber Security Analyst",
+        "description": "Protect computer systems and networks from cyber attacks.",
+        "skills": ["security", "networking", "penetration testing"],
+        "salary": 950000,
+        "industry_salary": 1000000,
+        "company_name": "SecureNet",
+        "company_logo": "assets/logos/securenet.png"
+    }
+]
