@@ -40,7 +40,7 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f7f9fc;
+  --background-color: #ffffff;
   --surface-color: #ffffff;
 }
 
@@ -1140,51 +1140,18 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
-.services .card {
-  background-color: var(--surface-color);
-  color: var(--default-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
-  position: relative;
-  border-radius: 0;
-  height: 100%;
+
+.container {
+  padding: 0 !important;
 }
 
-.services .card .card-img {
-  overflow: hidden;
-  margin-bottom: 15px;
-  border-radius: 0;
+.services-page .card {
+  border: 1px solid black; 
+  border-radius: 5px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
-
-.services .card .card-img img {
-  transition: 0.3s ease-in-out;
-}
-
-.services .card h3 {
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 5px;
-  padding: 10px 30px;
-  text-transform: uppercase;
-}
-
-.services .card a {
-  color: var(--heading-color);
-  transition: 0.3;
-}
-
-.services .card a:hover {
-  color: var(--accent-color);
-}
-
-.services .card p {
-  padding: 0 30px;
-  margin-bottom: 30px;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  font-size: 15px;
-}
-
-.services .card:hover .card-img img {
-  transform: scale(1.1);
+.services-page .card-body {
+  padding: 20px; 
 }
 
 /*--------------------------------------------------------------

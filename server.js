@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const serviceAccount = require('./assets/key/levelup-eccd9-firebase-adminsdk-p56cx-44aab5423c.json');
+const serviceAccount = require('./assets/key/levelup-eccd9-firebase-adminsdk-p56cx-afb1baba03.json');
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
