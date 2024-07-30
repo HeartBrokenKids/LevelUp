@@ -9,7 +9,7 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 
 // Firebase Admin SDK initialization
-const serviceAccount = require('../key/levelup-eccd9-firebase-adminsdk-p56cx-44aab5423c.json');
+const serviceAccount = require('../key/levelup-eccd9-firebase-adminsdk-p56cx-afb1baba03.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   storageBucket: 'levelup-eccd9.appspot.com'
