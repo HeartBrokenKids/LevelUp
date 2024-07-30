@@ -28,7 +28,7 @@
   <style>
     /* Main styles for the page */
     .course-card {
-      margin-bottom: 20px;
+      margin-bottom: 20px;                    
     }
 
     .most-recommended {
@@ -42,17 +42,20 @@
     }
 
     .card-text {
-      margin-bottom: 5px;
+      margin-bottom: 2px;
     }
 
     h1, h2 {
       text-align: center;
-      color: #007bff;
+      color: #001973;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
     .container {
-      padding: 20px;
-      border-radius: 10px;
+      padding: 0px !important;
+      
     }
   </style>
 </head>
@@ -82,13 +85,20 @@
   </header>
 
   <main class="main">
-    <div class="container mt-5">
-      <h1 class="mb-4">Course Recommendations</h1>
+
+     <!-- Page Title -->
+     <div class="page-title light-background" data-aos="fade" style="background-color: #f1f2f4;">
+      <div class="container position-relative">
+        <h1>Course Recommendations</h1>                
+      </div>
+    </div><!-- End Page Title -->
+
+    <div class="container mt-5">      
       <div id="course-list" class="row"></div>
       <h2 class="mt-5">ROI Comparison</h2>
       <canvas id="roiChart" width="400" height="200"></canvas>
     </div>
-  </main>
+  </main><br><br>
 
   <footer id="footer" class="footer dark-background">
     <div class="container footer-top">
