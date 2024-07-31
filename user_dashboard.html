@@ -290,7 +290,6 @@
               const result = await response.json();
               console.log('Result:', result);
   
-              // Display the extracted skills in an alert dialog
               if (result.skills && result.skills.length > 0) {
                   const skillsList = result.skills.join(', ');
                   alert('Extracted Skills: ' + skillsList);
