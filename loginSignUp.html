@@ -202,7 +202,7 @@
           if (result.role === 'student') {
             window.location.href = `http://localhost:3000/user_dashboard.html?userId=${userId}`;
           } else if (result.role === 'company') {
-            window.location.href = `http://localhost:3000/Employer/tobeadded.html?userId=${userId}`;
+            window.location.href = `http://localhost:3000/Employer/jobposting.html`;
           }
         } else {
           alert(`Login failed: ${result.message}`);
