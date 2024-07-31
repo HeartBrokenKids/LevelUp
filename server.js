@@ -11,7 +11,8 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const serviceAccount = require('./assets/key/levelup-eccd9-firebase-adminsdk-p56cx-afb1baba03.json');
+
+const serviceAccount = require('./assets/key/certi.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -92,7 +93,6 @@ app.post('/register-company', async (req, res) => {
 // Endpoint to verify user's authentication token and role
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
-<<<<<<< Updated upstream
   console.log('Received login request:', email);
 
   try {
@@ -104,79 +104,19 @@ app.post('/login', async (req, res) => {
 
     if (!userDoc.exists) {
       console.log('User document not found in Firestore:', userId);
-=======
-
-  try {
-    const userRecord = await admin.auth().getUserByEmail(email);
-    const userId = userRecord.uid;
-
-    const userDoc = await db.collection('users').doc(userId).get();
-    if (!userDoc.exists) {
->>>>>>> Stashed changes
       throw new Error('User not found');
     }
 
     const userData = userDoc.data();
-<<<<<<< Updated upstream
     console.log('User data fetched from Firestore:', userData);
 
     const role = userData.role;
     res.status(200).json({ message: 'Login successful', role, userId });
-=======
-    const role = userData.role;
-
-    const token = await admin.auth().createCustomToken(userId);
-
-    res.status(200).json({ message: 'Login successful', role, token });
->>>>>>> Stashed changes
   } catch (error) {
     console.error('Login error:', error);
     res.status(401).json({ message: 'Login failed', error: error.message });
   }
 });
-<<<<<<< Updated upstream
-
-app.get('/get-user-data', async (req, res) => {
-  const userId = req.query.userId; // Or better, use session-based authentication to identify user
-
-  if (!userId) {
-      return res.status(400).send({ error: 'User ID is required' });
-  }
-
-  try {
-      const userDoc = await db.collection('users').doc(userId).get();
-      if (!userDoc.exists) {
-          return res.status(404).send({ error: 'User not found' });
-      }
-
-      const userData = userDoc.data();
-      return res.status(200).json(userData); // Send only necessary data
-  } catch (error) {
-      console.error('Failed to fetch user data:', error);
-      res.status(500).send({ error: 'Failed to fetch user data' });
-  }
-});
-
-app.post('/update-user-data', async (req, res) => {
-  const { userId } = req.query;
-  const { fullName, college, email, number } = req.body;
-
-  try {
-      await db.collection('users').doc(userId).update({
-          fullName,
-          college,
-          email,
-          number
-      });
-      res.status(200).json({ message: 'User updated successfully' });
-  } catch (error) {
-      console.error('Error updating user:', error);
-      res.status(500).json({ error: 'Failed to update user' });
-  }
-});
-
-=======
->>>>>>> Stashed changes
 
 // Handle all GET requests to the root path by sending the courses.html file
 app.get('/courses', (req, res) => {

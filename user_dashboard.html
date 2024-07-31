@@ -83,7 +83,6 @@
     <img src="assets/img/world-dotted-map.png" alt="" class="hero-bg" data-aos="fade-in" style="background-color: #f1f2f4;">
     <div class="container">
         <div class="row gy-4 d-flex justify-content-between">
-<<<<<<< Updated upstream
             <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
                 <h2 data-aos="fade-up" style="color: rgb(16, 16, 112);">DASHBOARD</h2>
                 
@@ -95,8 +94,11 @@
                     <input type="text" id="user-number" class="form-control mb-2" placeholder="Phone Number">
                     
                     <!-- Upload Resume -->
-                    <label for="file-upload" class="btn btn-primary mb-2">Upload Resume</label>
-                    <input type="file" id="file-upload" class="form-control" style="display: none;">
+                    <form id="upload-form" action="/upload-pdf" method="POST" enctype="multipart/form-data" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+                      <label for="file-upload" class="btn btn-primary">Upload Resume</label>
+                      <input type="file" id="file-upload" name="resume" class="form-control" style="display: none;">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                     
                     <!-- Save Changes Button -->
                     <button type="button" class="btn btn-success" onclick="saveChanges()">Save Changes</button>
@@ -106,23 +108,6 @@
             <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
                 <img src="assets/img/custom/dashboard_bg.gif" class="img-fluid mb-3 mb-lg-0" alt="">
             </div>
-=======
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h2 data-aos="fade-up" style="color: rgb(16, 16, 112);">Dashboard</h2>
-            <p>fetch info from firebase</p>
-            
-            <form id="upload-form" action="/upload-pdf" method="POST" enctype="multipart/form-data" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-              <label for="file-upload" class="btn btn-primary">Upload Resume</label>
-              <input type="file" id="file-upload" name="resume" class="form-control" style="display: none;">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            <p id="upload-message" style="color: green;"></p>
-          </div>
-    
-          <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-            <img src="assets/img/custom/dashboard_bg.gif" class="img-fluid mb-3 mb-lg-0" alt="">
-          </div>
->>>>>>> Stashed changes
         </div>
     </div>
 </section>
@@ -214,7 +199,6 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-<<<<<<< Updated upstream
   <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
@@ -288,7 +272,6 @@
   
   
 
-=======
   <script src="assets/js/main.js"></script>
   <script src="assets/js/jobs_scripts.js"></script>
   
@@ -322,7 +305,6 @@
       }
     });
   </script>
->>>>>>> Stashed changes
 </body>
 
 </html>
