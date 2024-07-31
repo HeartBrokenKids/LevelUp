@@ -118,6 +118,45 @@ app.post('/login', async (req, res) => {
   }
 });
 
+app.get('/get-user-data', async (req, res) => {
+  const userId = req.query.userId; // Or better, use session-based authentication to identify user
+
+  if (!userId) {
+      return res.status(400).send({ error: 'User ID is required' });
+  }
+
+  try {
+      const userDoc = await db.collection('users').doc(userId).get();
+      if (!userDoc.exists) {
+          return res.status(404).send({ error: 'User not found' });
+      }
+
+      const userData = userDoc.data();
+      return res.status(200).json(userData); // Send only necessary data
+  } catch (error) {
+      console.error('Failed to fetch user data:', error);
+      res.status(500).send({ error: 'Failed to fetch user data' });
+  }
+});
+
+app.post('/update-user-data', async (req, res) => {
+  const { userId } = req.query;
+  const { fullName, college, email, number } = req.body;
+
+  try {
+      await db.collection('users').doc(userId).update({
+          fullName,
+          college,
+          email,
+          number
+      });
+      res.status(200).json({ message: 'User updated successfully' });
+  } catch (error) {
+      console.error('Error updating user:', error);
+      res.status(500).json({ error: 'Failed to update user' });
+  }
+});
+
 // Handle all GET requests to the root path by sending the courses.html file
 app.get('/courses', (req, res) => {
   res.sendFile(path.join(__dirname, 'courses.html'));
