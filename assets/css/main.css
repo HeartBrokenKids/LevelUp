@@ -249,6 +249,8 @@ h6 {
 
 .header .btn-getstarted,
 .header .btn-getstarted:focus {
+  width: 140px;
+  text-align: center;
   color: var(--contrast-color);
   background: var(--accent-color);
   font-size: 14px;
@@ -480,11 +482,12 @@ h6 {
   background-color: var(--background-color);
   font-size: 14px;
   position: relative;  
+  padding-top: 100px;
 }
 
 .footer .footer-top {
   padding-top: 100px;  
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+
 }
 
 .footer .footer-about .logo {
